@@ -20,9 +20,14 @@
 
 - name: "Copy config file"
   fetch:
-    src: /etc/kubernetes/admin.conf 
+    src: /etc/kubernetes/admin.conf
     dest: "{{ lookup('env', 'HOME') }}/admin.conf"
     flat: yes
   run_once: yes
   ignore_errors: yes
 
+- name: "Make master schedulable"
+  command: 'kubectl --kubeconfig={{ kubeadmin_config }} taint nodes --all node-role.kubernetes.io/master-'
+  when: master_schedulable
+  run_once: yes
+  ignore_errors: yes
