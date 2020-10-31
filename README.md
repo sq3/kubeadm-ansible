@@ -1,6 +1,6 @@
 # Kubeadm Ansible Playbook
 
-Build a Kubernetes cluster using Ansible with kubeadm. The goal is easily install a Kubernetes cluster on machines running:
+Build a Kubernetes cluster or single-node using Ansible with kubeadm. The goal is easily install a Kubernetes cluster on machines running:
 
   - Ubuntu 20.04 LTS
   - Ubuntu 16.04
