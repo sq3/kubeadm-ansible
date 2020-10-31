@@ -7,7 +7,7 @@
   tags: metallb
 
 - name: "Install MetalLB"
-  shell: "kubectl apply -f {{ metallb_yaml_url }}"
+  shell: "kubectl apply --kubeconfig={{ kubeadmin_config }} -f {{ metallb_yaml_url }}"
   tags: metallb
 
 - name: "Create configmap file"
@@ -17,7 +17,7 @@
   tags: metallb
 
 - name: "Create MetalLB configmap in kubernetes"
-  shell: "kubectl apply -f {{ tmp_dir }}/metallb-layer-2-config.yml"
+  shell: "kubectl apply --kubeconfig={{ kubeadmin_config }} -f {{ tmp_dir }}/metallb-layer-2-config.yml"
   tags: metallb
 
 - name: "Clean-up"
